@@ -1,14 +1,21 @@
 package main.metamodel;
 
 public class Transition{
+	
+	private String target = null;
+	
 	public Object getEvent() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public State getTarget() {
+	public void setTarget(String target) {
+		this.target = target;
+	}
+	
+	public String getTarget() {
 		// TODO Auto-generated method stub
-		return null;
+		return target;
 	}
 
 	public boolean hasSetOperation() {

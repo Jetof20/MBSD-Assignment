@@ -6,12 +6,26 @@ import java.util.List;
 
 import main.metamodel.Machine;
 import main.metamodel.State;
+import main.metamodel.Transition;
 
 public class StateMachine {
 
 	private HashMap<String, Integer> variables = new HashMap<String, Integer>();
 	private ArrayList<State> states = new ArrayList<State>();
+	private int starting_state_id = -1;
 	
+	
+	private State get_scoped_state() {
+		int latest_state_id = states.size() - 1;
+		return states.get(latest_state_id);
+	}
+	
+	private Transition get_scoped_transition() {
+		State latest_state = get_scoped_state();
+		List<Transition> transitions = latest_state.getTransitions();
+		int latest_transition_id = transitions.size() - 1;
+		return transitions.get(latest_transition_id);
+	}
 	
 	public Machine build() {
 		// TODO Auto-generated method stub
@@ -26,18 +40,23 @@ public class StateMachine {
 	}
 
 	public StateMachine initial() {
-		// TODO Auto-generated method stub
-		return null;
+		starting_state_id = states.size() - 1; // Get index of current element and set it as 
+		return this;
 	}
 
 	public StateMachine when(String string) {
-		// TODO Auto-generated method stub
-		return null;
+		State latest_state = get_scoped_state();
+		Transition transition = new Transition();
+		latest_state.addTransition(transition);
+		int latest_state_id = states.size() - 1;
+		states.set(latest_state_id, latest_state);
+		return this;
 	}
 
 	public StateMachine to(String string) {
-		// TODO Auto-generated method stub
-		return null;
+		Transition latest_transition = get_scoped_transition();
+		latest_transition.setTarget(string);
+		return this;
 	}
 
 	public StateMachine integer(String string) {
@@ -47,23 +66,15 @@ public class StateMachine {
 	}
 
 	public StateMachine set(String string, int i) {
-		variables.remove(string);
-		variables.put(string, i);
-		return this;
+		return null;
 	}
 
 	public StateMachine increment(String string) {
-		int new_var = variables.get(string);
-		variables.remove(string);
-		variables.put(string, new_var + 1);
-		return this;
+		return null;
 	}
 
 	public StateMachine decrement(String string) {
-		int new_var = variables.get(string);
-		variables.remove(string);
-		variables.put(string, new_var - 1);
-		return this;
+		return null;
 	}
 
 	public StateMachine ifEquals(String string, int i) {

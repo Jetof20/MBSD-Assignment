@@ -1,5 +1,6 @@
 package main.metamodel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class State {
@@ -10,9 +11,10 @@ public class State {
 	
 	public State(String name) {
 		this.name = name;
+		this.transitions = new ArrayList<Transition>();
 	}
 
-	public Object getName() {
+	public String getName() {
 		return name;
 	}
 	
