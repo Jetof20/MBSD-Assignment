@@ -46,7 +46,7 @@ public class StateMachine {
 			}
 		}
 		
-		Machine machine = new Machine(states,starting_state_id);
+		Machine machine = new Machine(states,starting_state_id,variables);
 		
 		return machine; 
 	}
@@ -109,7 +109,7 @@ public class StateMachine {
 
 	public StateMachine ifGreaterThan(String string, int i) {
 		Transition latest_transition = get_scoped_transition();
-		latest_transition.createConditional(string,"GREAT", i);
+		latest_transition.createConditional(string,"GREATER", i);
 		return this;
 	}
 

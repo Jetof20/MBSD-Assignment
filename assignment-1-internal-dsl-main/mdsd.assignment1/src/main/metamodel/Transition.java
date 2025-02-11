@@ -21,6 +21,10 @@ public class Transition{
 		this.name = name;
 	}
 	
+	public String getName() {
+		return this.name;
+	}
+	
 	public void setTarget(String target) {
 		this.target_name = target;
 	}
@@ -41,16 +45,25 @@ public class Transition{
 		this.set_operator = set_operator;
 	}
 	
-	public boolean hasOperation(String set_operator) {
+
+	public boolean hasOperation() {
 		if (variable_to_set == null) {
 			return false;
 		}
-		if (this.set_operator == set_operator) {
-			return true;
-		}
-		return false;
+		return true;
 	}
-
+	
+	public boolean hasOperation(String operation) {
+		if (set_operator == operation) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public int getOperationValue() {
+		return set_value;
+	}
 
 	public void createConditional(String variable_to_compare,String operator, int value_to_compare_to) {
 		this.value_to_compare_to = value_to_compare_to;
@@ -64,15 +77,26 @@ public class Transition{
 		}
 		return true;
 	}
-
+	
+	public boolean isConditional(String condition_operator) {
+		if (operator == condition_operator) {
+			return true;
+		}
+		return false;
+	}
+	
+	public Object getVariableToModify() {
+		return variable_to_set;
+	}
+	
 	public Object getConditionVariableName() {
 		// TODO Auto-generated method stub
-		return null;
+		return variable_to_compare;
 	}
 
 	public Integer getConditionComparedValue() {
 		// TODO Auto-generated method stub
-		return null;
+		return value_to_compare_to;
 	}
 
 	public boolean isConditionEqual() {
@@ -86,11 +110,6 @@ public class Transition{
 	}
 
 	public boolean isConditionLessThan() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public boolean hasOperation() {
 		// TODO Auto-generated method stub
 		return false;
 	}

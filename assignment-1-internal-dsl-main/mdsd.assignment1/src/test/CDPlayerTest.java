@@ -39,34 +39,43 @@ public class CDPlayerTest {
 	
 	@Test
 	public void playMusic() {
+		
+		System.out.println("-- Test 1 --");
 		interpreter.processEvent("PLAY");
 		assertEquals(1, interpreter.getInteger("track"));
 		assertEquals("PLAYING", interpreter.getCurrentState().getName());
 		
+		System.out.println("-- Test 2 --");
 		interpreter.processEvent("TRACK_END");
 		assertEquals(2, interpreter.getInteger("track"));
 		assertEquals("PLAYING", interpreter.getCurrentState().getName());
 		
+		System.out.println("-- Test 3 --");
 		interpreter.processEvent("STOP");
 		assertEquals(2, interpreter.getInteger("track"));
 		assertEquals("STOP", interpreter.getCurrentState().getName());
 		
+		System.out.println("-- Test 4 --");
 		interpreter.processEvent("PLAY");
 		assertEquals(2, interpreter.getInteger("track"));
 		assertEquals("PLAYING", interpreter.getCurrentState().getName());
 		
+		System.out.println("-- Test 5 --");
 		interpreter.processEvent("PAUSE");
 		assertEquals(2, interpreter.getInteger("track"));
 		assertEquals("PAUSED", interpreter.getCurrentState().getName());
 		
+		System.out.println("-- Test 6 --");
 		interpreter.processEvent("BACK");
 		assertEquals(1, interpreter.getInteger("track"));
 		assertEquals("PAUSED", interpreter.getCurrentState().getName());
 		
+		System.out.println("-- Test 7 --");
 		interpreter.processEvent("FORWARD");
 		assertEquals(2, interpreter.getInteger("track"));
 		assertEquals("PAUSED", interpreter.getCurrentState().getName());
 		
+		System.out.println("-- Test 8 --");
 		interpreter.processEvent("FORWARD");
 		interpreter.processEvent("FORWARD");
 		interpreter.processEvent("FORWARD");
@@ -78,10 +87,12 @@ public class CDPlayerTest {
 		assertEquals(10, interpreter.getInteger("track"));
 		assertEquals("PAUSED", interpreter.getCurrentState().getName());
 		
+		System.out.println("-- Test 9 --");
 		interpreter.processEvent("PLAY");
 		assertEquals(10, interpreter.getInteger("track"));
 		assertEquals("PLAYING", interpreter.getCurrentState().getName());
 		
+		System.out.println("-- Test 10 --");
 		interpreter.processEvent("TRACK_END");
 		assertEquals(10, interpreter.getInteger("track"));
 		assertEquals("STOP", interpreter.getCurrentState().getName());
