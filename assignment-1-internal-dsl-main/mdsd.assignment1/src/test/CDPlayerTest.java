@@ -32,8 +32,6 @@ public class CDPlayerTest {
 						when("PLAY").to("PLAYING").
 						when("FORWARD").to("PAUSED").increment("track").ifLessThan("track", NUMBER_TRACKS + 1).
 						when("BACK").to("PAUSED").decrement("track").ifGreaterThan("track", 1).
-						
-						
 					build();
 		interpreter = new MachineInterpreter();
 		interpreter.run(m);

@@ -23,7 +23,6 @@ public class State {
 	}
 
 	public List<Transition> getTransitions() {
-		// TODO Auto-generated method stub
 		return transitions;
 	}
 
