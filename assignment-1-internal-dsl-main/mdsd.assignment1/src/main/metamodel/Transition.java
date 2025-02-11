@@ -101,41 +101,41 @@ public class Transition{
 
 	public boolean isConditionEqual() {
 		// TODO Auto-generated method stub
-		return false;
+		return isConditional("EQUAL");
 	}
 
 	public boolean isConditionGreaterThan() {
 		// TODO Auto-generated method stub
-		return false;
+		return isConditional("GREATER");
 	}
 
 	public boolean isConditionLessThan() {
 		// TODO Auto-generated method stub
-		return false;
+		return isConditional("LESS");
 	}
 
 	public Object getEvent() {
 		// TODO Auto-generated method stub
-		return null;
+		return getName();
 	}
 
-	public BooleanSupplier hasSetOperation() {
+	public boolean hasSetOperation() {
 		// TODO Auto-generated method stub
-		return null;
+		return hasOperation("SET");
 	}
 
-	public BooleanSupplier hasIncrementOperation() {
+	public boolean hasIncrementOperation() {
 		// TODO Auto-generated method stub
-		return null;
+		return hasOperation("INCREMENT");
 	}
 
-	public BooleanSupplier hasDecrementOperation() {
+	public boolean hasDecrementOperation() {
 		// TODO Auto-generated method stub
-		return null;
+		return hasOperation("DECREMENT");
 	}
 
 	public Object getOperationVariableName() {
 		// TODO Auto-generated method stub
-		return null;
+		return variable_to_set;
 	}
 }

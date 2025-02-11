@@ -27,7 +27,11 @@ public class State {
 	}
 
 	public Transition getTransitionByEvent(String string) {
-		// TODO Auto-generated method stub
+		for (Transition t : transitions) {
+			if (t.getName() == string) {
+				return t;
+			}
+		}
 		return null;
 	}
 }

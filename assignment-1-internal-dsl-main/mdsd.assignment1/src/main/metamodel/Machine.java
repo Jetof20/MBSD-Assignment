@@ -18,10 +18,13 @@ public class Machine {
 	}
 
 	public Machine(ArrayList<State> states, int initial_state_id, HashMap<String, Integer> variables) {
-		this.states = (ArrayList<State>) states;
-		this.cur_state = this.states.get(initial_state_id);
 		this.variables = variables;
-		this.initial_state = this.cur_state;
+		if (states.size() != 0) {
+			this.states = (ArrayList<State>) states;
+			this.cur_state = this.states.get(initial_state_id);
+			this.initial_state = this.cur_state;
+		}
+		
 	}
 	
 	public HashMap<String, Integer> getVariables() {
@@ -35,17 +38,22 @@ public class Machine {
 
 	public State getState(String string) {
 		// TODO Auto-generated method stub
-		return cur_state;
+		for (State s : states) {
+			if (s.getName() == string) {
+				return s;
+			}
+		}
+		return null;
 	}
 
 	public int numberOfIntegers() {
 		// TODO Auto-generated method stub
-		return 0;
+		return variables.size();
 	}
 
 	public boolean hasInteger(String string) {
 		// TODO Auto-generated method stub
-		return false;
+		return variables.containsKey(string);
 	}
 }
 
