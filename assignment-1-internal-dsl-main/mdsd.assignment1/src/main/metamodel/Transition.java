@@ -113,4 +113,29 @@ public class Transition{
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	public Object getEvent() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public BooleanSupplier hasSetOperation() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public BooleanSupplier hasIncrementOperation() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public BooleanSupplier hasDecrementOperation() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object getOperationVariableName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
